@@ -1,3 +1,97 @@
+$small-screen: 599px;
+$medium-screen: 600px;
+$medium-x-screen: 900px;
+$large-screen: 1200px;
+
+@mixin mq($mq) {
+  @if $mq == small {
+    @media (max-width: $small-screen) {
+      @content;
+    }
+  }
+  @if $mq == medium {
+    @media (min-width: $medium-screen) {
+      @content;
+    }
+  }
+  @if $mq == medium-landscape {
+    @media (min-width: $medium-x-screen) {
+      @content;
+    }
+  }
+  @if $mq == large {
+    @media (min-width: $large-screen) {
+      @content;
+    }
+  }
+}
+
 body {
-  width: 100%;
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  padding: 5em;
+  margin: 0;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  @include mq(small) {
+    flex-direction: column;
+  }
+  @include mq(medium) {
+    flex-direction: column;
+  }
+  @include mq(medium-landscape) {
+    flex-direction: row;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 1rem;
+  border: 1px solid black;
+  .section-header {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    h2 {
+      border-left: 1px solid black;
+      border-bottom: 1px solid black;
+      margin: 0;
+      padding: 0.5rem 1rem;
+    }
+  }
+  .section-content {
+    padding: 1rem 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+  }
+  .section-content {
+    margin: 0;
+    padding: 1.5rem;
+  }
+}
+
+.list-1 {
+  @include mq(small) {
+    flex-direction: column;
+  }
+}
+
+.list-1,
+.list-2 {
+  display: flex;
 }
