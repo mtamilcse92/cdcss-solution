@@ -1,0 +1,16 @@
+{
+  "name": "cdcss-solution",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mtamilcse92/cdcss-solution.git",
+  "author": "mtamilcse92 <mtamilcse92@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/main.scss public/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0",
+    "nodemon": "^1.19.4"
+  }
+}
