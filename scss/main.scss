@@ -26,6 +26,23 @@ $large-screen: 1200px;
   }
 }
 
+$background_type: "orange", "pink", "red";
+
+$bg_color: (
+  "orange": rgba(255, 106, 0, 1),
+  "pink": #ffb6c1,
+  "red": #ff615d
+);
+
+@each $type in $background_type {
+  .background-#{$type} {
+    background: map_get($bg_color, $type);
+  }
+}
+
+$section-bg: rgba(0, 0, 0, 0.05);
+$section-border-clr: black;
+
 body {
   height: 100%;
 }
@@ -58,17 +75,18 @@ body {
 
 .section {
   display: flex;
+  background: $section-bg;
   flex-direction: column;
   flex: 1;
   margin: 1rem;
-  border: 1px solid black;
+  border: 1px solid $section-border-clr;
   .section-header {
     display: flex;
     justify-content: flex-end;
     flex: 1;
     h2 {
-      border-left: 1px solid black;
-      border-bottom: 1px solid black;
+      border-left: 1px solid $section-border-clr;
+      border-bottom: 1px solid $section-border-clr;
       margin: 0;
       padding: 0.5rem 1rem;
     }
